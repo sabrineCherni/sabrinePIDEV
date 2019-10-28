@@ -1,0 +1,116 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup>
+			<h:form>
+			<table>
+					<tr>
+						<td><h:outputText value="Nom Formation"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.nomFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Type Formation"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.typeFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Adresse Formation"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.adresseFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Nombre de places disponible"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.nbPlaceFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Date de formation"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.dateFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Heure de Formation"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.heureFormation}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Nombre de participants"></h:outputText></td>
+						<td><h:inputText value="#{formationBean.nbParticipant}"></h:inputText></td>
+					</tr>
+
+					<tr>
+						<td colspan="2">
+						         <h:commandButton value="Ajouter Formation"
+								action="#{formationBean.addFormation()}" /> 
+								<h:commandButton
+								value="Mettre à jour Formation"
+								action="#{formationBean.updateFormation()}" /></td>
+					</tr>
+				</table>
+			</h:form>
+			</h:panelGroup>
+			
+		<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{formationBean.formations}" var="formation"
+					border="1">
+					
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="nom Formation" />
+						</f:facet>
+						<h:outputText value="#{formation.nomFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Type Formation" />
+						</f:facet>
+						<h:outputText value="#{formation.typeFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Adresse Formation" />
+						</f:facet>
+						<h:outputText value="#{formation.adresseFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nombre places disponibles" />
+						</f:facet>
+						<h:outputText value="#{formation.nbPlaceFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Date Formation" />
+						</f:facet>
+						<h:outputText value="#{formation.dateFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Heure Formation" />
+						</f:facet>
+						<h:outputText value="#{formation.heureFormation}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nombre de participants" />
+						</f:facet>
+						<h:outputText value="#{formation.nbParticipant}" />
+					</h:column>
+					
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Action" />
+						</f:facet>
+						<h:commandButton action="#{formationBean.removeFormation(formation.idFormation)}"
+							value="Supprimer" />
+						<h:commandButton action="#{formationBean.displayFormation(formation)}"
+							value="Afficher" />
+					</h:column>
+
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

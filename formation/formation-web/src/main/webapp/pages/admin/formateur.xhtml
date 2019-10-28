@@ -1,0 +1,97 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup>
+			<h:form>
+			<table>
+					<tr>
+						<td><h:outputText value="Prenom Formateur"></h:outputText></td>
+						<td><h:inputText value="#{formateurBean.prenomFormateur}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Nom Formateur"></h:outputText></td>
+						<td><h:inputText value="#{formateurBean.nomFormateur}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Poste Formateur"></h:outputText></td>
+						<td><h:inputText value="#{formateurBean.posteFormateur}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Mail de Formateur"></h:outputText></td>
+						<td><h:inputText value="#{formateurBean.mailFormateur}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Tel de formateur"></h:outputText></td>
+						<td><h:inputText value="#{formateurBean.telFormateur}"></h:inputText></td>
+					</tr>
+
+					<tr>
+						<td colspan="2">
+						         <h:commandButton value="Ajouter Formateur"
+								action="#{formateurBean.addFormateur()}" /> 
+								<h:commandButton
+								value="Mettre à jour Formateur"
+								action="#{formateurBean.updateFormateur()}" /></td>
+					</tr>
+				</table>
+			</h:form>
+			</h:panelGroup>
+			
+		<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{formateurBean.formateurs}" var="formateur"
+					border="1">
+					
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Prenom Formateur" />
+						</f:facet>
+						<h:outputText value="#{formateur.prenomFormateur}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nom Formateur" />
+						</f:facet>
+						<h:outputText value="#{formateur.nomFormateur}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Poste Formateur" />
+						</f:facet>
+						<h:outputText value="#{formateur.posteFormateur}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Mail Formateur" />
+						</f:facet>
+						<h:outputText value="#{formateur.mailFormateur}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Tel Formateur" />
+						</f:facet>
+						<h:outputText value="#{formateur.telFormateur}" />
+					</h:column>
+					
+					
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Action" />
+						</f:facet>
+						<h:commandButton action="#{formateurBean.removeFormateur(formateur.idFormateur)}"
+							value="Supprimer" />
+						<h:commandButton action="#{formateurBean.displayFormateur(formateur)}"
+							value="Afficher" />
+					</h:column>
+
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

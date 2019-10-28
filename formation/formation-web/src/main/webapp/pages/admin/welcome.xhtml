@@ -1,0 +1,118 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<h:panelGroup>
+			<h:form>
+				<h:outputText
+					value="Bonjour  #{loginBean.collaborateur.prenom} #{loginBean.collaborateur.nom}" /> |
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+			</h:form>
+		</h:panelGroup>
+		<h:panelGroup columns="2">
+			<h:form>
+				<table>
+					
+					
+					<tr>
+						<td><h:outputText value="Prenom"></h:outputText></td>
+						<td><h:inputText value="#{collaborateurBean.prenom}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Nom"></h:outputText></td>
+						<td><h:inputText value="#{collaborateurBean.nom}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Mot de Passe"></h:outputText></td>
+						<td><h:inputSecret value="#{collaborateurBean.password}"></h:inputSecret></td>
+					</tr>
+					
+					<tr>
+						<td><h:outputText value="Poste"></h:outputText></td>
+						<td><h:inputText value="#{collaborateurBean.poste}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Login (mail)"></h:outputText></td>
+						<td><h:inputText value="#{collaborateurBean.mail}"></h:inputText></td>
+					</tr>
+					<tr>
+						<td><h:outputText value="Tel"></h:outputText></td>
+						<td><h:inputText value="#{collaborateurBean.tel}"></h:inputText></td>
+					</tr>
+					
+					
+									
+					<tr>
+						<td colspan="2">
+						         <h:commandButton value="Ajouter Collaborateur"
+								action="#{collaborateurBean.addColl()}" /> 
+								<h:commandButton
+								value="Mettre A jour Collaborateur"
+								action="#{collaborateurBean.updateColl()}" />
+					 </td>
+					</tr>
+				</table>
+			</h:form>
+
+		</h:panelGroup>
+		<h:panelGroup columns="2">
+			<h:form>
+				<h:dataTable value="#{collaborateurBean.collaborateurs}" var="collaborateur"
+					border="1">
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Prenom" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.prenom}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Nom" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.nom}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Password" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.password}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Poste" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.poste}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Login" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.mail}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Tel" />
+						</f:facet>
+						<h:outputText value="#{collaborateur.tel}" />
+					</h:column>
+					
+					
+					
+					<h:column>
+						<f:facet name="header">
+							<h:outputText value="Action" />
+						</f:facet>
+						<h:commandButton action="#{collaborateurBean.removeColl(collaborateur.id)}"
+							value="Supprimer" />
+						<h:commandButton action="#{collaborateurBean.displayColl(collaborateur)}"
+							value="Afficher" />
+					</h:column>
+
+				</h:dataTable>
+			</h:form>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>
