@@ -7,34 +7,35 @@
 	<ui:define name="content">
 		<h:panelGroup>
 			<h:form>
+			<h:messages styleClass="errorBlock" /><br/>
 			<table>
 					<tr>
 						<td><h:outputText value="Nom Formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.nomFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.nomFormation}" required="true" requiredMessage="La saisie du nom est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Type Formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.typeFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.typeFormation}" required="true" requiredMessage="La saisie du type est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Adresse Formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.adresseFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.adresseFormation}" required="true" requiredMessage="La saisie de l'adresse est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Nombre de places disponible"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.nbPlaceFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.nbPlaceFormation}" required="true" requiredMessage="La saisie du nombre de places disponibles est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Date de formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.dateFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.dateFormation}" required="true" requiredMessage="La saisie du date est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Heure de Formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.heureFormation}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.heureFormation}" required="true" requiredMessage="La saisie d'heure est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Nombre de participants"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.nbParticipant}"></h:inputText></td>
+						<td><h:inputText value="#{formationBean.nbParticipant}" required="true" requiredMessage="La saisie du nombre de participants est obligatoire !"></h:inputText></td>
 					</tr>
 
 					<tr>

@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import tn.esprit.formation.entity.Collaborateur;
 import tn.esprit.formation.service.impl.CollaborateurServiceImpl;
@@ -35,6 +39,14 @@ public class CollaborateurBean implements Serializable {
 		collaborateurService.removeColl(collaborateurId);
 		}
 	
+	public void validateAField(FacesContext context, UIComponent component, Object value) throws ValidatorException {
+	    String inputValue = (String) value;
+	    if ( ! inputValue.contains( "@" ) ) {
+	        FacesMessage msg = new FacesMessage( "Mauvais format : Le mail doit contenir un @" );
+	        msg.setSeverity( FacesMessage.SEVERITY_ERROR );
+	        throw new ValidatorException(msg);
+	    }
+	}
 	
 
 	

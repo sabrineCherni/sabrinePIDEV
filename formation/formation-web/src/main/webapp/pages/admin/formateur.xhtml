@@ -7,26 +7,27 @@
 	<ui:define name="content">
 		<h:panelGroup>
 			<h:form>
+			<h:messages styleClass="errorBlock" /><br/>
 			<table>
 					<tr>
 						<td><h:outputText value="Prenom Formateur"></h:outputText></td>
-						<td><h:inputText value="#{formateurBean.prenomFormateur}"></h:inputText></td>
+						<td><h:inputText value="#{formateurBean.prenomFormateur}" required="true" requiredMessage="La saisie du prenom est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Nom Formateur"></h:outputText></td>
-						<td><h:inputText value="#{formateurBean.nomFormateur}"></h:inputText></td>
+						<td><h:inputText value="#{formateurBean.nomFormateur}" required="true" requiredMessage="La saisie du nom est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Poste Formateur"></h:outputText></td>
-						<td><h:inputText value="#{formateurBean.posteFormateur}"></h:inputText></td>
+						<td><h:inputText value="#{formateurBean.posteFormateur}" required="true" requiredMessage="La saisie du poste est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Mail de Formateur"></h:outputText></td>
-						<td><h:inputText value="#{formateurBean.mailFormateur}"></h:inputText></td>
+						<td><h:inputText value="#{formateurBean.mailFormateur}" required="true" requiredMessage="La saisie du mail est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Tel de formateur"></h:outputText></td>
-						<td><h:inputText value="#{formateurBean.telFormateur}"></h:inputText></td>
+						<td><h:inputText value="#{formateurBean.telFormateur}" required="true" requiredMessage="La saisie du tel est obligatoire !"></h:inputText></td>
 					</tr>
 
 					<tr>

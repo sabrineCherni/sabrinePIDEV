@@ -7,6 +7,7 @@
 	<ui:define name="content">
 		<h:panelGroup>
 			<h:form>
+			<h:messages styleClass="errorBlock" /><br/>
 				<h:outputText
 					value="Bonjour  #{loginBean.collaborateur.prenom} #{loginBean.collaborateur.nom}" /> |
 <h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
@@ -19,28 +20,30 @@
 					
 					<tr>
 						<td><h:outputText value="Prenom"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.prenom}"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.prenom }" required="true" requiredMessage="La saisie du prenom est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Nom"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.nom}"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.nom}" required="true" requiredMessage="La saisie du nom est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Mot de Passe"></h:outputText></td>
-						<td><h:inputSecret value="#{collaborateurBean.password}"></h:inputSecret></td>
+						<td><h:inputSecret value="#{collaborateurBean.password}" required="true" requiredMessage="La saisie du mot de passe est obligatoire !"></h:inputSecret></td>
 					</tr>
 					
 					<tr>
 						<td><h:outputText value="Poste"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.poste}"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.poste}" required="true" requiredMessage="La saisie du poste est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Login (mail)"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.mail}"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.mail}" required="true" requiredMessage="La saisie du login est obligatoire !" validator="#{collaborateurBean.validateAField}">
+						<h:message for="aField" styleClass="errorBlock" />
+						</h:inputText></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Tel"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.tel}"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.tel}" required="true" requiredMessage="La saisie du tel est obligatoire !"></h:inputText></td>
 					</tr>
 					
 					
