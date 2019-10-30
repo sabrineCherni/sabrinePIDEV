@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body>
+    	
+    	   	<h:link outcome="/pages/admin/employeTechnique.xhtml" value="Afficher votre tableau de compétence"/>
+    	     
+    	     
+    	<h1>Quiz Technique</h1>
+ 
+    	<h2>resultat du Quiz :</h2>
+    	
+    	<ol>
+    		<li>user.favColor1 : #{user.favColor1}</li>
+    		<li>user.favColor2 : #{user.favColor2}</li>
+    		<li>user.favColor3 : #{user.favColor3}</li>
+    		
+    	</ol>
+    	<h3>votre score : #{user.result}/3</h3>
+    	
+    </h:body>
+</html>

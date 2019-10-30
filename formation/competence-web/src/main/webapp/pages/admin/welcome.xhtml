@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/LoggedInTemplate.xhtml"> 
+<ui:param name="page_name" value="Accueil" /> 
+<ui:define name="content"> 
+<h:panelGroup> 
+</h:panelGroup>
+<h:link outcome="/pages/admin/index.jsp" value="Contacter l'employé"/>
+<br/>
+<br/>			
+
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Date de formation technique disponible"></h:outputText></td> 
+<td><h:inputText value="#{quizBean.reponse}"></h:inputText></td></tr>
+
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter date formation" action="#{quizBean.addQuiz()}" /><h:commandButton value="Mettre A jour Date" action="#{quizBean.updateQuiz()}" /></td></tr>
+</table></h:form></h:panelGroup>
+<br/>
+<br/>
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{quizBean.quizs}" var="quiz" border="1">
+<h:column><f:facet name="header"><h:outputText value="Date Formation technique" /></f:facet>
+ <h:outputText value="#{quiz.reponse}" /></h:column>
+<h:column> <f:facet name="header"><h:outputText value="Action" /></f:facet> <h:commandButton action="#{quizBean.removeQuiz(quiz.id)}" value="Supprimer" />
+<h:commandButton action="#{quizBean.displayQuiz(quiz)}" value="Afficher" /> </h:column>
+</h:dataTable> </h:form> </h:panelGroup> 
+<br/>
+<br/>
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Date de formation de communication disponible"></h:outputText></td> 
+<td><h:inputText value="#{formationBean.formationc}"></h:inputText></td></tr>
+
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter date formation" action="#{formationBean.addFormation()}" /><h:commandButton value="Mettre A jour Date" action="#{formationBean.updateFormation()}" /></td></tr>
+</table></h:form></h:panelGroup>
+<br/>
+<br/>
+
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{formationBean.formations}" var="formation" border="1">
+ <h:column><f:facet name="header"><h:outputText value="Date Formation du communication" /></f:facet>
+  <h:outputText value="#{formation.formationc}" /></h:column>
+<h:column> <f:facet name="header"><h:outputText value="Action" /></f:facet> <h:commandButton action="#{formationBean.removeFormation(formation.id)}" value="Supprimer" />
+<h:commandButton action="#{formationBean.displayFormation(formation)}" value="Afficher" /> </h:column>
+</h:dataTable> </h:form> </h:panelGroup> 
+
+
+
+</ui:define> 
+</ui:composition>

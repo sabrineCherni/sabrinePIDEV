@@ -17,10 +17,10 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <name>formation</name>
+    <name>competence</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>tn.esprit</groupId>
-    <artifactId>formation</artifactId>
+    <artifactId>competence</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
@@ -33,9 +33,9 @@
         </license>
     </licenses>
     <modules>
-        <module>formation-ejb</module>
-        <module>formation-web</module>
-        <module>formation-ear</module>
+        <module>competence-ejb</module>
+        <module>competence-web</module>
+        <module>competence-ear</module>
     </modules>
 
     <properties>
@@ -73,7 +73,7 @@
                 to repeat ourselves in every module -->
             <dependency>
                 <groupId>tn.esprit</groupId>
-                <artifactId>formation-ejb</artifactId>
+                <artifactId>competence-ejb</artifactId>
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
@@ -82,7 +82,7 @@
                 ourselves in every module -->
             <dependency>
                 <groupId>tn.esprit</groupId>
-                <artifactId>formation-web</artifactId>
+                <artifactId>competence-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
                 <scope>compile</scope>
