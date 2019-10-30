@@ -11,6 +11,7 @@
 				<h:outputText
 					value="Bonjour  #{loginBean.collaborateur.prenom} #{loginBean.collaborateur.nom}" /> |
 <h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+<h:commandButton id="btn" value="Formations" action="#{collaborateurBean.goFormation(loginBean.collaborateur.mail,loginBean.collaborateur.password)}" />
 			</h:form>
 		</h:panelGroup>
 		<h:panelGroup columns="2">
@@ -28,7 +29,9 @@
 					</tr>
 					<tr>
 						<td><h:outputText value="Mot de Passe"></h:outputText></td>
-						<td><h:inputSecret value="#{collaborateurBean.password}" required="true" requiredMessage="La saisie du mot de passe est obligatoire !"></h:inputSecret></td>
+						<td><h:inputSecret value="#{collaborateurBean.password}" required="true" requiredMessage="La saisie du mot de passe est obligatoire !" validatorMessage="Votre mot de passe doit contenir entre 3 à 12 caractères">
+						<f:validateLength minimum="3" maximum="12" />
+						</h:inputSecret><h:message for="password" styleClass="errorBlock" /></td>
 					</tr>
 					
 					<tr>
@@ -43,7 +46,9 @@
 					</tr>
 					<tr>
 						<td><h:outputText value="Tel"></h:outputText></td>
-						<td><h:inputText value="#{collaborateurBean.tel}" required="true" requiredMessage="La saisie du tel est obligatoire !"></h:inputText></td>
+						<td><h:inputText value="#{collaborateurBean.tel}" required="true" requiredMessage="La saisie du tel est obligatoire !" validatorMessage="Votre telephone doit contenir au moins 8 caractères" >
+						<f:validateLength minimum="8" />
+						</h:inputText><h:message for="tel" styleClass="errorBlock" /></td>
 					</tr>
 					
 					

@@ -1,17 +1,19 @@
 package tn.esprit.formation.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 
@@ -32,13 +34,13 @@ public class Formation implements Serializable{
     
     private int nbPlaceFormation;
     
-    private String dateFormation;
-    
-    private String heureFormation;
-    
+    @Temporal(TemporalType.DATE)
+	private Date dateDebutFormation;
+	@Temporal(TemporalType.DATE)
+	private Date dateFinFormation;
     private int nbParticipant;
     
-    @ManyToMany(mappedBy="formations")
+    @ManyToMany(mappedBy="formations" , fetch = FetchType.EAGER )
 	private List<Collaborateur> collaborateurs;
     
     @ManyToOne
@@ -54,7 +56,7 @@ public class Formation implements Serializable{
 
 
 	public Formation(int idFormation, String nomFormationr, String typeFormation, String adresseFormation,
-			int nbPlaceFormation, String dateFormation, String heureFormation, int nbParticipant,
+			int nbPlaceFormation, Date dateFormation, Date dateFinformation, int nbParticipant,
 			List<Collaborateur> collaborateurs, Formateur formateur) {
 		super();
 		this.idFormation = idFormation;
@@ -62,8 +64,8 @@ public class Formation implements Serializable{
 		this.typeFormation = typeFormation;
 		this.adresseFormation = adresseFormation;
 		this.nbPlaceFormation = nbPlaceFormation;
-		this.dateFormation = dateFormation;
-		this.heureFormation = heureFormation;
+		this.dateDebutFormation = dateFormation;
+		this.dateFinFormation = dateFinformation;
 		this.nbParticipant = nbParticipant;
 		this.collaborateurs = collaborateurs;
 		this.formateur = formateur;
@@ -73,14 +75,14 @@ public class Formation implements Serializable{
 
 
 	public Formation(String nomFormation, String typeFormation, String adresseFormation, int nbPlaceFormation,
-			String dateFormation, String heureFormation, int nbParticipant) {
+			Date dateFormation, Date dateFinformation, int nbParticipant) {
 		super();
 		this.nomFormation = nomFormation;
 		this.typeFormation = typeFormation;
 		this.adresseFormation = adresseFormation;
 		this.nbPlaceFormation = nbPlaceFormation;
-		this.dateFormation = dateFormation;
-		this.heureFormation = heureFormation;
+		this.dateDebutFormation = dateFormation;
+		this.dateFinFormation = dateFinformation;
 		this.nbParticipant = nbParticipant;
 	}
 
@@ -146,26 +148,28 @@ public class Formation implements Serializable{
 
 
 
-	public String getDateFormation() {
-		return dateFormation;
+
+
+	public Date getDateDebutFormation() {
+		return dateDebutFormation;
 	}
 
 
 
-	public void setDateFormation(String dateFormation) {
-		this.dateFormation = dateFormation;
+	public void setDateDebutFormation(Date dateDebutFormation) {
+		this.dateDebutFormation = dateDebutFormation;
 	}
 
 
 
-	public String getHeureFormation() {
-		return heureFormation;
+	public Date getDateFinFormation() {
+		return dateFinFormation;
 	}
 
 
 
-	public void setHeureFormation(String heureFormation) {
-		this.heureFormation = heureFormation;
+	public void setDateFinFormation(Date dateFinFormation) {
+		this.dateFinFormation = dateFinFormation;
 	}
 
 

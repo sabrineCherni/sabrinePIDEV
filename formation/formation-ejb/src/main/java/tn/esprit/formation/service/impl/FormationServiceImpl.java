@@ -2,14 +2,13 @@ package tn.esprit.formation.service.impl;
 	
 	import java.util.List;
 
-	import javax.ejb.LocalBean;
-	import javax.ejb.Stateless;
-	import javax.persistence.EntityManager;
-	import javax.persistence.PersistenceContext;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-    import tn.esprit.formation.entity.Collaborateur;
-    import tn.esprit.formation.entity.Formation;
-    import tn.esprit.formation.service.interf.FormationServiceRemote;
+import tn.esprit.formation.entity.Formation;
+import tn.esprit.formation.service.interf.FormationServiceRemote;
 
 
 	@Stateless
@@ -36,12 +35,24 @@ package tn.esprit.formation.service.impl;
 			c.setNomFormation(formation.getNomFormation());
 			c.setTypeFormation(formation.getTypeFormation());
 			c.setNbPlaceFormation(formation.getNbPlaceFormation());
-			c.setDateFormation(formation.getDateFormation());
-			c.setHeureFormation(formation.getHeureFormation());
+		    c.setDateDebutFormation(formation.getDateDebutFormation());
+		    c.setDateFinFormation(formation.getDateFinFormation());
 			c.setNbParticipant(formation.getNbParticipant());
 			
 		}
 
+		@Override
+		public void updateFormationAfterParticipation(Formation formation) {
+			Formation c = em.find(Formation.class, formation.getIdFormation());
+			c.setNomFormation(formation.getNomFormation());
+			c.setTypeFormation(formation.getTypeFormation());
+			c.setNbPlaceFormation(formation.getNbPlaceFormation());
+		    c.setDateDebutFormation(formation.getDateDebutFormation());
+		    c.setDateFinFormation(formation.getDateFinFormation());
+			c.setNbParticipant(formation.getNbParticipant());
+			c.setCollaborateurs(formation.getCollaborateurs());
+			
+		}
 		@Override
 		public List<Formation> getAllFormations() {
 			List<Formation> formation = em.createQuery("Select f from Formation f",

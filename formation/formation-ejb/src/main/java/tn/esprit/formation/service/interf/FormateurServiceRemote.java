@@ -12,6 +12,7 @@ public interface FormateurServiceRemote {
 	public void removeFormateur(int id);
 	public void updateFormateur(Formateur formateur);
 	//public Formateur getFormateurByEmailAndPassword(String mail, String password);
+	public Formateur findFormateurpById(int id);
 	public List<Formateur> getAllFormateurs();
 
 

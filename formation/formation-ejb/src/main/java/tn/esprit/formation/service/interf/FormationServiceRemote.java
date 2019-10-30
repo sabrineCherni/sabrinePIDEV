@@ -11,5 +11,6 @@ public interface FormationServiceRemote {
 	public void updateFormation(Formation formation);
 	//public Collaborateur getCollaborateurByEmailAndPassword(String mail, String password);
 	public List<Formation> getAllFormations();
+	void updateFormationAfterParticipation(Formation formation);
 
 }

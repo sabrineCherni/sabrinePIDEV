@@ -6,6 +6,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import tn.esprit.formation.entity.Formateur;
 import tn.esprit.formation.service.interf.FormateurServiceRemote;
 
@@ -51,5 +52,11 @@ public class FormateurServiceImpl implements FormateurServiceRemote{
 				Formateur.class).getResultList();
 		return formateur;
 	}
-
+	@Override
+	public  Formateur findFormateurpById(int id) {
+		System.out.println("In findFormateurpById : ");
+		Formateur formateur = em.find(Formateur.class, id);
+		System.out.println("Out of findFormateurpById : "+formateur.getNomFormateur());
+		return formateur;
+	}
 }

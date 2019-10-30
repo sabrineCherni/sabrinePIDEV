@@ -1,10 +1,20 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	template="/template/template.xhtml">
 	<ui:param name="page_name" value="Accueil" />
+	<h:outputScript library="javascript" name="1.js" target="head" />
 	<ui:define name="content">
+			<h:panelGroup>
+			<h:form>
+			<h:messages styleClass="errorBlock" /><br/>
+				<h:outputText
+					value="Bonjour  #{loginBean.collaborateur.prenom} #{loginBean.collaborateur.nom}" /> |
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" />
+			</h:form>
+		</h:panelGroup>
 		<h:panelGroup>
 			<h:form>
 			<h:messages styleClass="errorBlock" /><br/>
@@ -26,18 +36,29 @@
 						<td><h:inputText value="#{formationBean.nbPlaceFormation}" required="true" requiredMessage="La saisie du nombre de places disponibles est obligatoire !"></h:inputText></td>
 					</tr>
 					<tr>
-						<td><h:outputText value="Date de formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.dateFormation}" required="true" requiredMessage="La saisie du date est obligatoire !"></h:inputText></td>
+						<td><h:outputText value="Date Debut de formation"></h:outputText></td>
+						<td><p:calendar id="popup2" value="#{formationBean.dateDebutFormation}" required="true" requiredMessage="La saisie du date est obligatoire !"/></td>
 					</tr>
 					<tr>
-						<td><h:outputText value="Heure de Formation"></h:outputText></td>
-						<td><h:inputText value="#{formationBean.heureFormation}" required="true" requiredMessage="La saisie d'heure est obligatoire !"></h:inputText></td>
+						<td><h:outputText value="Date Fin de formation"></h:outputText></td>
+						<td><p:calendar id="popup1" value="#{formationBean.dateFinFormation}" required="true" requiredMessage="La saisie du date est obligatoire !"/></td>
 					</tr>
 					<tr>
 						<td><h:outputText value="Nombre de participants"></h:outputText></td>
 						<td><h:inputText value="#{formationBean.nbParticipant}" required="true" requiredMessage="La saisie du nombre de participants est obligatoire !"></h:inputText></td>
 					</tr>
+<!--                  <h:outputLabel for="advanced" value="Formateurs:" /> -->
+<!--         <h:selectOneMenu id="advanced" value="#{formationBean.formateur}" panelStyle="width:180px" -->
+<!--                          effect="fade" var="t" style="width:160px" filter="true" filterMatchMode="startsWith" converter="genericConverter"> -->
+<!--             <f:selectItem itemLabel="Select One" itemValue="" /> -->
+<!--             <f:selectItems value="#{formateurBean.formateurs}" var="formateur"  -->
+<!--                itemLabel="#{formateur.nomFormateur} #{formateur.prenomFormateur}" itemValue="#{formateur}" /> -->
+<!--         </h:selectOneMenu> -->
 
+<!-- <h:selectOneMenu id="id6" value="#{formationBean.formateur}" -->
+<!-- style="width:200px"> -->
+<!-- <f:selectItems value="#{formateurBean.formateurs}" /> -->
+<!-- </h:selectOneMenu> -->
 					<tr>
 						<td colspan="2">
 						         <h:commandButton value="Ajouter Formation"
@@ -82,16 +103,18 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">
-							<h:outputText value="Date Formation" />
+							<h:outputText value="Date Debut Formation" />
 						</f:facet>
-						<h:outputText value="#{formation.dateFormation}" />
+						<h:outputText value="#{formation.dateDebutFormation}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">
-							<h:outputText value="Heure Formation" />
+							<h:outputText value="Date Fin Formation" />
 						</f:facet>
-						<h:outputText value="#{formation.heureFormation}" />
+						<h:outputText value="#{formation.dateFinFormation}" />
 					</h:column>
+					
+				
 					<h:column>
 						<f:facet name="header">
 							<h:outputText value="Nombre de participants" />
@@ -108,6 +131,8 @@
 							value="Supprimer" />
 						<h:commandButton action="#{formationBean.displayFormation(formation)}"
 							value="Afficher" />
+							<h:commandButton
+							value="Participer" action="#{formationBean.participerFormation(formation,loginBean.collaborateur.mail,loginBean.collaborateur.password)}"/>
 					</h:column>
 
 				</h:dataTable>
