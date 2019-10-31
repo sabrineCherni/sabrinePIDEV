@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:p="http://primefaces.org/ui"
+template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Accueil" /> 
+<ui:define name="content"> 
+<h:panelGroup> 
+<h:form> 
+<h:outputText value="Bonjour #{loginBean.employe.prenom} #{loginBean.employe.nom}" /> | 
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" /> 
+</h:form> 
+</h:panelGroup>
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Number days work ( last 7 days ) : "></h:outputText></td>
+<td><h:outputText value="#{timesheetBean.Nombredaywork(7)}"></h:outputText></td></tr>
+<tr><td><h:outputText value="Number days work ( last 30 days ) : "></h:outputText></td>
+<td><h:outputText value="#{timesheetBean.Nombredaywork(30)}"></h:outputText></td></tr>
+<tr><td><h:outputText value="Number Hours work ( today ) : "></h:outputText></td>
+<td><h:outputText value="#{timesheetBean.Numberhourswork(1)}"></h:outputText></td></tr>
+<tr><td><h:outputText value="Number Hours work ( last 7 ) : "></h:outputText></td>
+<td><h:outputText value="#{timesheetBean.Numberhourswork(7)}"></h:outputText></td></tr>
+<tr><td><h:outputText value="Number Hours work ( last 30 days ) : "></h:outputText></td>
+<td><h:outputText value="#{timesheetBean.Numberhourswork(30)}"></h:outputText></td></tr>
+
+
+</table></h:form></h:panelGroup> 
+<h:panelGroup> 
+<p:chart type="line" model="#{timesheetBean.areaModel}" style="height:300px" />
+</h:panelGroup>
+</ui:define> 
+</ui:composition>

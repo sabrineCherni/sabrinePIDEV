@@ -17,10 +17,10 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <name>formation</name>
+    <name>timesheet-pidev</name>
     <modelVersion>4.0.0</modelVersion>
     <groupId>tn.esprit</groupId>
-    <artifactId>formation</artifactId>
+    <artifactId>timesheet-pidev</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
@@ -33,9 +33,9 @@
         </license>
     </licenses>
     <modules>
-        <module>formation-ejb</module>
-        <module>formation-web</module>
-        <module>formation-ear</module>
+        <module>timesheet-pidev-ejb</module>
+        <module>timesheet-pidev-web</module>
+        <module>timesheet-pidev-ear</module>
     </modules>
 
     <properties>
@@ -51,7 +51,7 @@
 
         <!-- Define the version of the JBoss BOMs we want to import to specify tested stacks. -->
         <version.jboss.bom>8.2.1.Final</version.jboss.bom>
-        <version.wildfly>9.0.0.Alpha1</version.wildfly>
+        <version.wildfly>11.0.0.Final</version.wildfly>
 
 
         <!-- other plugin versions -->
@@ -62,8 +62,9 @@
         <version.war.plugin>2.5</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        
     </properties>
 
     <dependencyManagement>
@@ -73,7 +74,7 @@
                 to repeat ourselves in every module -->
             <dependency>
                 <groupId>tn.esprit</groupId>
-                <artifactId>formation-ejb</artifactId>
+                <artifactId>timesheet-pidev-ejb</artifactId>
                 <version>${project.version}</version>
                 <type>ejb</type>
             </dependency>
@@ -82,7 +83,7 @@
                 ourselves in every module -->
             <dependency>
                 <groupId>tn.esprit</groupId>
-                <artifactId>formation-web</artifactId>
+                <artifactId>timesheet-pidev-web</artifactId>
                 <version>${project.version}</version>
                 <type>war</type>
                 <scope>compile</scope>
@@ -111,7 +112,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+		<dependency>
+                <groupId>org.primefaces</groupId>
+                <artifactId>primefaces</artifactId>
+                <version>7.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
