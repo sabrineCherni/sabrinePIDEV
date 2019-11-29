@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>email</th>
+        <th>update</th>
+    </tr>
+    @foreach (var p in ViewBag.result)
+    {
+    <tr>
+        <td>@p.id</td>
+        <td>@p.nom</td>
+        <td>@p.prenom</td>
+        <td>@p.email</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = p.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = p.id })
+        </td>
+
+    </tr>
+
+    }
+
+</table>
+
+
+
