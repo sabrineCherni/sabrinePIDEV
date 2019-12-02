@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back8.jpg)">
+    	
+    	<h1>Quiz Technique</h1>
+    	<h:form>
+    	
+	        1.It is considered a crucial component for learning a second language:  
+   		<h:selectOneRadio value="#{user.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Practice" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Interaction" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Motivation" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Mention some resources that may facilitate speaking in the second language?:
+   		<h:selectOneRadio value="#{user.favColor2}">
+   			<f:selectItems value="#{user.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3. What is an example of the sociolinguistic competence area of the communicative competence model?:
+   		<h:selectOneRadio value="#{user.favColor3}">
+   			<f:selectItems value="#{user.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="result"  
+		actionListener="#{user.takeTest()}" >
+		   <f:actionListener binding="#{competenceBean.updateTest2()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

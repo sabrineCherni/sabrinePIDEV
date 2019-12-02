@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back6.jpg)">
+    	
+    	<h1>Quiz Communication</h1>
+    	<h:form>
+    	
+	        1.Quelles sont les formes de support de la communication ?:  
+   		<h:selectOneRadio value="#{usersl.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Orales" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Visuelles" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Ecrites" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Il existe des moyens simples pour favoriser la communication. Quels sont-ils parmi cette liste ?:
+   		<h:selectOneRadio value="#{usersl.favColor2}">
+   			<f:selectItems value="#{usersl.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3. Il existe de nombreux obstacles à la communication :
+   		<h:selectOneRadio value="#{usersl.favColor3}">
+   			<f:selectItems value="#{usersl.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resultsl"  
+		actionListener="#{usersl.takeTest()}" >
+		   <f:actionListener binding="#{communicationBean.updateTest7()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

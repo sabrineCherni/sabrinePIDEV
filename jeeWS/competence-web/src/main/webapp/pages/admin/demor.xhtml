@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back10.jpg)">
+    	
+    	<h1>Quiz Technique</h1>
+    	<h:form>
+    	
+	        1.Existe t-il des raccourcis clavier pour changer de mode d'affichage ?:  
+   		<h:selectOneRadio value="#{userr.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Cela dépend des versions" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Non" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Oui" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Combien y a t-il de modes d'affichage différents sous Word ?:
+   		<h:selectOneRadio value="#{userr.favColor2}">
+   			<f:selectItems value="#{userr.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3.
+Quel est le mode idéal pour travailler sur le fond de son document (et non la forme) ?:
+   		<h:selectOneRadio value="#{userr.favColor3}">
+   			<f:selectItems value="#{userr.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resultr"  
+		actionListener="#{userr.takeTest()}" >
+		   <f:actionListener binding="#{competenceBean.updateTest4()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

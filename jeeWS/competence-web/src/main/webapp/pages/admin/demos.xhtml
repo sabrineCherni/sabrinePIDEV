@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back.jpg)" >
+    	
+    	<h1>Quiz Communication</h1>
+    	<h:form>
+    	
+	        1.Quelle égérie a rejoint Georges Clooney dans le dernier spot publicitaire Nespresso ?:  
+   		<h:selectOneRadio value="#{users.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel=" Jean Dujardin" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Guillaume Canet" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Johnny Depp" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Qui a dit sur une très célèbre affiche publicitaire en 1981 « le 2 septembre j’enlève le haut, le 4 septembre j’enlève le bas » ?:
+   		<h:selectOneRadio value="#{users.favColor2}">
+   			<f:selectItems value="#{users.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3.Quel était le slogan de Free lors de la campagne de 2008 portée par l’inoubliable geek Rodolphe ?:
+   		<h:selectOneRadio value="#{users.favColor3}">
+   			<f:selectItems value="#{users.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="results"  
+		actionListener="#{users.takeTest()}" >
+		   <f:actionListener binding="#{communicationBean.updateTest9()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

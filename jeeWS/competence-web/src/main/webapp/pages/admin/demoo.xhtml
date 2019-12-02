@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back9.jpg)">
+    	
+    	<h1>Quiz Technique</h1>
+    	<h:form>
+    	
+	        1.Sur quoi se positionnent les taquets de tabulation ?:  
+   		<h:selectOneRadio value="#{usero.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Sur les règles" />
+   			<f:selectItem itemValue="Reponse2" itemLabel=" Sur les barres de défilement" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Sur les barres de taquets" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Qu'est-ce que la barre d'accès rapide ?:
+   		<h:selectOneRadio value="#{usero.favColor2}">
+   			<f:selectItems value="#{usero.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3.Comment s'appelle la zone où apparaissent tous les outils ?:
+   		<h:selectOneRadio value="#{usero.favColor3}">
+   			<f:selectItems value="#{usero.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resulto"  
+		actionListener="#{usero.takeTest()}" >
+		   <f:actionListener binding="#{competenceBean.updateTest3()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Accueil" /> 
+<ui:define name="content"> 
+<h:panelGroup> 
+<h:form> 
+<h:outputText value="Bonjour #{loginBean.employe.prenom} #{loginBean.employe.nom}" /> | 
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" /> 
+</h:form> 
+</h:panelGroup>
+<h:link outcome="/pages/admin/quiz" value="passer le quiz"/>
+<br/>		
+
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="employe nom "></h:outputText></td>
+<td><h:inputText value="#{competenceBean.nomemploye}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Savoir"></h:outputText></td> 
+<td><h:inputText value="#{competenceBean.savoir}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Savoir faire op"></h:outputText></td> 
+<td><h:inputText value="#{competenceBean.savoirfaireop}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Savoir faire rel"></h:outputText></td> 
+<td><h:inputText value="#{competenceBean.savoirfairerel}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Aptitude"></h:outputText></td> 
+<td><h:inputText value="#{competenceBean.aptitude}"></h:inputText></td></tr>
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter niveau" action="#{competenceBean.addCompetence()}" /><h:commandButton value="Mettre A jour Competence" action="#{competenceBean.updateCompetence()}" /></td></tr>
+</table></h:form></h:panelGroup>
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{competenceBean.competences}" var="competence" border="1">
+<h:column><f:facet name="header"><h:outputText value="Employé nom  2" /></f:facet> <h:outputText value="#{competence.nomemploye}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Savoir" /></f:facet> <h:outputText value="#{competence.savoir}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Savoir fair eop" /></f:facet> <h:outputText value="#{competence.savoirfaireop}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="savoir faire rel" /></f:facet> <h:outputText value="#{competence.savoirfairerel}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Aptitude" /></f:facet> <h:outputText value="#{competence.aptitude}"  /></h:column>
+<h:column> <f:facet name="header"><h:outputText value="Action" /></f:facet> <h:commandButton action="#{competenceBean.removeCompetence(competence.id)}" value="Supprimer" />
+<h:commandButton action="#{competenceBean.displayCompetence(competence)}" value="Afficher" /> </h:column>
+</h:dataTable> </h:form> </h:panelGroup> 
+
+</ui:define> 
+</ui:composition>

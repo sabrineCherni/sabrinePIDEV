@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back11.jpg)">
+    	
+    	<h1>Quiz Technique</h1>
+    	<h:form>
+    	
+	        1.Existe t-il des raccourcis clavier pour changer de mode d'affichage ?:  
+   		<h:selectOneRadio value="#{usera.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Cela dépend des versions" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Non" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Oui" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Quel est le mode le plus adapté pour naviguer dans un document très long ?:
+   		<h:selectOneRadio value="#{usera.favColor2}">
+   			<f:selectItems value="#{usera.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3.Est-il possible d'afficher un quadrillage en calque sur son document ?:
+   		<h:selectOneRadio value="#{usera.favColor3}">
+   			<f:selectItems value="#{usera.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resulta"  
+		actionListener="#{usera.takeTest()}" >
+		   <f:actionListener binding="#{competenceBean.updateTest5()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

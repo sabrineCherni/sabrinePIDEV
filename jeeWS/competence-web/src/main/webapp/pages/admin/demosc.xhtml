@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back5.jpg)">
+    	
+    	<h1>Quiz Communication</h1>
+    	<h:form>
+    	
+	        1.« Omo est là et crapoto basta » est le célèbre slogan de la lessive OMO en 1990. Il est issu d’un langage spécialement inventé pour cette saga publicitaire. Lequel ?:  
+   		<h:selectOneRadio value="#{usersc.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="L’Omolandais" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Le Poldomoldave" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="L'Omolien" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Quelle célèbre actrice américaine a dit ne porter pour dormir : « que quelques gouttes de CHANEL N°5 » ?:
+   		<h:selectOneRadio value="#{usersc.favColor2}">
+   			<f:selectItems value="#{usersc.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3. Quelle marque met en scène dans ses publicités des bébés énergiques qui nagent, dansent ou font du roller ?:
+   		<h:selectOneRadio value="#{usersc.favColor3}">
+   			<f:selectItems value="#{usersc.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resultsc"  
+		actionListener="#{usersc.takeTest()}" >
+		   <f:actionListener binding="#{communicationBean.updateTest8()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

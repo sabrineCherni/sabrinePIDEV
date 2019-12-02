@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:panelGroup  style="background-image: url(back11.jpg)"> 
+<style>
+body {
+	
+}
+h1 {
+	color: red;
+}
+p {
+	color: rgb(0,0,255)
+}
+</style>
+   <div id="top" class="top">
+            <h:form>
+            <div style="text-align:right;padding: 5px"> User Logged in:  #{loginBean.employe.prenom} #{loginBean.employe.nom}  |  <h:commandLink value="log off" action="#{loginBean.doLogout()}" /></div>
+            </h:form>
+        </div>
+<h1 color="blue">Gestion des Competences</h1>
+ 
+</h:panelGroup>
+</ui:composition>

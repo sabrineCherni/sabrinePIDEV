@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:body style="background-image: url(back7.jpg)">
+    	
+    	<h1>Quiz Communication</h1>
+    	<h:form>
+    	
+	        1.L'émetteur est celui qui ::  
+   		<h:selectOneRadio value="#{userl.favColor1}">
+   			<f:selectItem itemValue="Reponse1" itemLabel="Donne une information" />
+   			<f:selectItem itemValue="Reponse2" itemLabel="Reçoit une information" />
+   			<f:selectItem itemValue="Reponse3" itemLabel="Enregistre une information" />
+   		</h:selectOneRadio>
+		
+   		<br />
+	    
+	        2.Mention some resources that may facilitate speaking in the second language?:
+   		<h:selectOneRadio value="#{userl.favColor2}">
+   			<f:selectItems value="#{userl.favColor2Value}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+	    
+	         3.Il existe 3 formes de communication : verbale, non verbale et :
+   		<h:selectOneRadio value="#{userl.favColor3}">
+   			<f:selectItems value="#{userl.favColor3Value}" var="c"
+   			itemLabel="#{c.colorLabel}" itemValue="#{c.colorValue}" />
+   		</h:selectOneRadio>
+   		
+	        <br />
+<h:commandButton value="submit" action="resultl"  
+		actionListener="#{userl.takeTest()}" >
+		   <f:actionListener binding="#{communicationBean.updateTest6()}" />
+  </h:commandButton>
+		<h:commandButton value="Recommencer" type="reset" />
+   
+    	</h:form>
+    </h:body>
+</html>

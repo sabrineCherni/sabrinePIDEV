@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Accueil" /> 
+<div  class="centerDiv" style="width: 400px">
+ 
+  <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+
+<ui:define name="content"> 
+
+<h:link outcome="/pages/admin/demo" value="passer le quiz savoir"/>
+<br/>	
+<h:link outcome="/pages/admin/demoo" value="passer le quiz savoir faire operationnel"/>
+<br/>	
+<h:link outcome="/pages/admin/demor" value="passer le quiz savoir faire relationnel"/>
+<br/>
+<h:link outcome="/pages/admin/demoa" value="passer le quiz aptitude"/>
+<br/>
+
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Le tableau des compétences techniques "></h:outputText></td></tr>
+
+</table></h:form></h:panelGroup>
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{competenceBean.competences}" var="competence" border="1">
+<h:column><f:facet name="header"><h:outputText value="nom de l'employe" /></f:facet> <h:outputText value="#{loginBean.employe.prenom} #{loginBean.employe.nom}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Savoir" /></f:facet> <h:outputText value="#{competence.savoir}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Savoir faire operationnel" /></f:facet> <h:outputText value="#{competence.savoirfaireop}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="savoir faire relationnel" /></f:facet> <h:outputText value="#{competence.savoirfairerel}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Aptitude" /></f:facet> <h:outputText value="#{competence.aptitude}"  /></h:column>
+
+</h:dataTable> </h:form> </h:panelGroup> 
+
+
+
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Les dates du formation disponible "></h:outputText></td></tr>
+
+</table></h:form></h:panelGroup>
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{quizBean.quizs}" var="quiz" border="1">
+<h:column><f:facet name="header"><h:outputText value="Date Formation technique" /></f:facet>
+ <h:outputText value="#{quiz.reponse}" /></h:column>
+</h:dataTable> </h:form> </h:panelGroup> 
+
+
+
+
+
+</ui:define> 
+</div>
+</ui:composition>

@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Accueil" /> 
+<ui:define name="content"> 
+<h:panelGroup> 
+<h:form> 
+<h:outputText value="Bonjour #{loginBean.employe.prenom} #{loginBean.employe.nom}" /> | 
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" /> 
+</h:form> 
+</h:panelGroup>
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="Question "></h:outputText></td>
+<td><h:inputText value="#{quizBean.question}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Reponse "></h:outputText></td> 
+<td><h:inputText value="#{quizBean.reponse}"></h:inputText></td></tr>
+
+<tr><td colspan="2"> <h:commandButton value="Ajouter Question" action="#{quizBean.addQuiz()}" /><h:commandButton value="Mettre A jour Question" action="#{quizBean.updateQuiz()}" /></td></tr>
+</table></h:form></h:panelGroup>
+<h:panelGroup columns="2"> <h:form> <h:dataTable value="#{quizBean.quizs}" var="quiz" border="1">
+<h:column><f:facet name="header"><h:outputText value="Question" /></f:facet> <h:outputText value="#{quiz.question}" /></h:column>
+<h:column><f:facet name="header"><h:outputText value="Reponse" /></f:facet> <h:outputText value="#{quiz.reponse}" /></h:column>
+<h:column> <f:facet name="header"><h:outputText value="Action" /></f:facet> <h:commandButton action="#{quizBean.removeQuiz(quiz.id)}" value="Supprimer" />
+<h:commandButton action="#{quizBean.displayQuiz(quiz)}" value="Afficher" /> </h:column>
+</h:dataTable> </h:form> </h:panelGroup> 
+</ui:define> 
+</ui:composition>
