@@ -4,6 +4,8 @@ namespace MyCompetence.data
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using MyCompetence.Domain.Entities;
+    using MyCompetence.domain.Entities;
 
     public partial class Context : DbContext
     {
@@ -18,6 +20,12 @@ namespace MyCompetence.data
         public virtual DbSet<t_formation> t_formation { get; set; }
         public virtual DbSet<t_manager> t_manager { get; set; }
         public virtual DbSet<t_quiz> t_quiz { get; set; }
+       public virtual DbSet<Fichemetier> Fichemetiers { get; set; }
+
+        public virtual DbSet<Reclamation> Reclamations { get; set; }
+
+        public virtual DbSet<Skill> Skills { get; set; }
+        //   public virtual DbSet<Formation> Formations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -123,5 +131,7 @@ namespace MyCompetence.data
                 .Property(e => e.reponse)
                 .IsUnicode(false);
         }
+
+        
     }
 }

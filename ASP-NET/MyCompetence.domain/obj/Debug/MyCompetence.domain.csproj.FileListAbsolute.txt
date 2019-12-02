@@ -17,10 +17,7 @@ C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\Renci.SshN
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\EntityFramework.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\Google.Protobuf.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\MySql.Data.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\bin\Debug\Renci.SshNet.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.csprojAssemblyReference.cache
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.csproj.CoreCompileInputs.cache
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.csproj.CopyComplete
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.dll

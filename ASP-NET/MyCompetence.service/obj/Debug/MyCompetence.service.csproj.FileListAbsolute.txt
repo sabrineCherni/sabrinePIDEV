@@ -7,6 +7,7 @@ C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\EntityFra
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\Google.Protobuf.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.data.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.domain.dll
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.ServicePattern.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MySql.Data.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\Renci.SshNet.dll
@@ -14,11 +15,11 @@ C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompete
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.data.dll.config
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.domain.pdb
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.domain.dll.config
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.ServicePattern.pdb
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MyCompetence.ServicePattern.dll.config
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\EntityFramework.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\Google.Protobuf.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MySql.Data.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\bin\Debug\Renci.SshNet.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\obj\Debug\MyCompetence.service.csprojAssemblyReference.cache
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.service\obj\Debug\MyCompetence.service.csproj.CoreCompileInputs.cache

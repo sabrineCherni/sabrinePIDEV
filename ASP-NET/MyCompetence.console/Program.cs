@@ -15,9 +15,8 @@ namespace MyCompetence.console
 
             Employe p = new Employe() { nom = "asus" };
 
-            MyCompetenceContext ctx = new MyCompetenceContext();
-            ctx.Employes.Add(p);
-            ctx.SaveChanges();
+ 
+          
             Console.WriteLine("fin");
             Console.ReadKey();
 

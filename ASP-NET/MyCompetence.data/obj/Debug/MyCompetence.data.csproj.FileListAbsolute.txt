@@ -14,11 +14,12 @@ C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\MyCompetence
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\EntityFramework.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\Google.Protobuf.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\MySql.Data.xml
-C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\bin\Debug\Renci.SshNet.xml
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.csprojAssemblyReference.cache
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.Migrations.fadi.resources
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.csproj.GenerateResource.cache
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.csproj.CoreCompileInputs.cache
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.csproj.CopyComplete
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.pdb
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.data\obj\Debug\MyCompetence.data.Migrations.mig11.resources
