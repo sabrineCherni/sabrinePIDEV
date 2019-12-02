@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:p="http://primefaces.org/ui"
+template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Accueil Admin" /> 
+<ui:define name="head"> 
+<style type="text/css">
+    .ui-datatable .ui-datatable-header {
+        text-align: right !important;
+    }
+     
+    .ui-button-text-only .ui-button-text {
+        padding: 0.3em 0.4em;
+    }
+     
+    .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox {
+        visibility: hidden;
+    }
+     
+    .ui-filter-column .ui-column-customfilter .custom-filter {
+        width: 100%;
+        box-sizing: border-box;
+    }
+     
+    .year-spinner input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
+</ui:define>
+<ui:define name="content">
+<h:panelGroup> 
+<h:form> 
+<h:outputText value="Bonjour #{loginBean.employe.prenom} #{loginBean.employe.nom}" /> | 
+<h:commandLink value="Déconnexion" action="#{loginBean.doLogout()}" /> 
+</h:form> 
+</h:panelGroup>
+<h:panelGroup columns="2"> 
+<h:form>
+    <p:dataTable var="tache" value="#{managertimeBean.taches}" widgetVar="tachesTable"
+                 emptyMessage="No taches found with given criteria" filteredValue="#{managertimeBean.filteredTaches}">
+ 
+        <f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Search all fields:" />
+                <p:inputText id="globalFilter" onkeyup="PF('tachesTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            </p:outputPanel>
+        </f:facet>
+ 		<p:column filterBy="#{tache.employe.nom}" headerText="Nom Employe" filterMatchMode="contains">
+            <h:outputText value="#{tache.employe.nom}" />
+        </p:column>
+        <p:column headerText="Title">
+            <h:outputText value="#{tache.title}" />
+        </p:column>
+        
+        <p:column headerText="From">
+            <h:outputText value="#{tache.from}" />
+        </p:column>
+ 		<p:column headerText="To">
+            <h:outputText value="#{tache.to}" />
+        </p:column>
+        <p:column headerText="Status">
+            <h:outputText value="#{tache.status}" />
+        </p:column>
+        <p:column headerText="Action">
+ 		 <h:commandButton action="#{managertimeBean.removeTache(tache.id)}" value="Supprimer" />
+		 <h:commandButton action="#{managertimeBean.displayTache(tache)}" value="Afficher" />
+        </p:column>
+    </p:dataTable>
+</h:form>
+</h:panelGroup>
+<h:panelGroup columns="2"><h:form><table>
+<tr><td><h:outputText value="title Tache"></h:outputText></td>
+<td><h:inputText value="#{managertimeBean.title}"></h:inputText></td></tr>
+<tr><td><h:outputText value="Status"></h:outputText></td> 
+<td><h:selectOneMenu value="#{managertimeBean.status}"> 
+<f:selectItem itemLabel="Choisir Status" itemValue=""/> 
+<f:selectItems value="#{data.status}" /> </h:selectOneMenu></td></tr>
+<tr><td><h:outputText value="From"></h:outputText></td> 
+<td><p:calendar value="#{managertimeBean.from}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/></td></tr>
+<tr><td><h:outputText value="To"></h:outputText></td> 
+<td><p:calendar value="#{managertimeBean.to}" timeZone="GMT+2" pattern="dd/MM/yyyy HH:mm"/></td></tr>
+<tr><td><h:commandButton value="Mettre A jour Tache" action="#{managertimeBean.updateTache}" /></td></tr>
+</table></h:form>
+</h:panelGroup> 
+</ui:define> 
+</ui:composition>
