@@ -1,0 +1,117 @@
+﻿@model IEnumerable<MyTimesheet.Web.Models.Tache>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.from)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.to)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.employe_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.projets_Projet_ID)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.from)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.to)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.employe_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.projets_Projet_ID)
+                    </th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.from)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.to)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.employe.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.projets.id)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <input type="button" id="btnExport" value="Export" onclick="Export()" class="auto-style5" />
+    </div>
+</div>
+<script src="~/jsfiles/html2canvas.min.js"></script>
+<script src="~/jsfiles/pdfmake.min.js"></script>
+<script type="text/javascript">
+    function Export() {
+        alert("download PDF");
+        html2canvas(document.getElementById('dataTable'), {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 500
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("tache.pdf");
+                alert("Tache Downloading Started");
+            }
+        });
+    }
+</script>
