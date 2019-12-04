@@ -33,14 +33,17 @@ namespace MyCompetence.Data.Infrastructure
         }
         public virtual void Update(T entity)
         {
-           // dataContext.Entry(entity).State = entity.Id == 0 ? EntityState.Added : EntityState.Modified;
+            // dataContext.Entry(entity).State = entity.Id == 0 ? EntityState.Added : EntityState.Modified;
 
 
-                dataContext.Entry(entity).State = EntityState.Added;
-                dataContext.SaveChanges();
-             //    dbset.Attach(entity);
+              dataContext.Entry(entity).State = EntityState.Added;
+              dataContext.SaveChanges();
+             dbset.Attach(entity);
                 dataContext.Entry(entity).State = EntityState.Modified;
-           
+
+            dataContext.SaveChanges();
+
+
         }
         public virtual void Delete(T entity)
         {

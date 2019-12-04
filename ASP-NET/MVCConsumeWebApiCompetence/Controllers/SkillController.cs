@@ -130,5 +130,27 @@ namespace MVCConsumeWebApiCompetence.Controllers
                 return View();
             }
         }
+        public ActionResult Charts()
+        {
+            return View();
+        }
+        public ActionResult GetData()
+        {
+            int Bien = fs.GetAll().Where(x => x.NiveauSkill == "Bien").Count();
+            int Moyen = fs.GetAll().Where(x => x.NiveauSkill == "Moyen").Count();
+            int Mauvais = fs.GetAll().Where(x => x.NiveauSkill == "Mauvais").Count();
+            Ratio obj = new Ratio();
+            obj.Bien = Bien;
+            obj.Moyen = Moyen;
+            obj.Mauvais = Mauvais;
+
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+        public class Ratio
+        {
+            public int Bien { get; set; }
+            public int Moyen { get; set; }
+            public int Mauvais { get; set; }
+        }
     }
 }

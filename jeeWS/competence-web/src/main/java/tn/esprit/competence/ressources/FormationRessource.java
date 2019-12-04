@@ -23,7 +23,7 @@ public class FormationRessource {
 	@EJB 
 	FormationService formationService; 
 	
-	
+	@Secured 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
  	public Response getAllUser ()
@@ -35,14 +35,20 @@ public class FormationRessource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createUser( Formation emp) {
+		if (emp != null) {
 		return Response.status(Status.CREATED).entity(formationService.ajouterFormation(emp)).build();
+	}
+		return Response.status(Status.BAD_REQUEST).entity("not created").build();
 	}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateUser( Formation emp) {
-		return Response.status(Status.ACCEPTED).entity(formationService.updateFormation0(emp)).build();
+		if(formationService.updateFormation0(emp)!=null)
+		{
+		return Response.status(Status.ACCEPTED).entity(formationService.updateFormation0(emp)).build();}
+		return Response.status(Status.NOT_MODIFIED).build();
 	}
 	
 	@GET
@@ -51,7 +57,11 @@ public class FormationRessource {
  	public Response getUser (@PathParam(value="id")int id)
  	
  	{	
+		if(formationService.getFormationById(id) != null ) {
+		
 		return Response.ok(formationService.getFormationById(id)).build();
+ 	}
+		return Response.status(Status.NOT_FOUND).build();
  	}
 	
 	@DELETE

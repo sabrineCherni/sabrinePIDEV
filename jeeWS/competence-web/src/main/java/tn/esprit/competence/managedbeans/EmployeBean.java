@@ -55,7 +55,8 @@ public void setemployeIdToBeUpdated(Integer employeIdToBeUpdated) {
 	this.employeIdToBeUpdated = employeIdToBeUpdated;
 }
 public void updateEmploye() { 
-	employeService.updateEmploye(new Employe(  employeIdToBeUpdated, prenom, nom, email, password,grade, role)); } 
+	//employeService.updateEmploye(new Employe(  employeIdToBeUpdated, prenom, nom, email, password,grade, role));
+} 
 public List<Employe> getEmployes() {
 	employes = employeService.getAllEmployes(); 
 	return employes;

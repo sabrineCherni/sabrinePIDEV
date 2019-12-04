@@ -23,6 +23,18 @@ namespace MVCConsumeWebApiCompetence.Controllers
             return View(fs.GetAll());
         }
 
+        [HttpPost]
+        public ActionResult Index(string filtre)
+        {
+            var list = fs.GetMany();
+
+            if (!String.IsNullOrEmpty(filtre))
+            { list = list.Where(m => m.Titre.ToString().Equals(filtre)).ToList(); }
+            return View(list);
+        }
+
+
+
         // GET: Fichemetier/Details/5
         public ActionResult Details(int id)
         {
@@ -58,21 +70,15 @@ namespace MVCConsumeWebApiCompetence.Controllers
         }
 
         // GET: Fichemetier/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            //  Fichemetier p = fs.GetById(id);
-            /* fs = new FichemetierService();
-             var fichemetiers = fs.GetById(id);
-             ViewBag.FicheMetierId = new SelectList(fichemetiers, "FicheMetierId", "CompetenceRequis");*/
-            return View(fs.GetById(id));
+             return View(fs.GetById(id));
 
 
 
 
-            /*      fs = new FichemetierService();
-                  var fichemetiers = fs.GetMany();
-                  ViewBag.FicheMetierId = new SelectList(fichemetiers, "FicheMetierId", "CompetenceRequis"); 
-                  return View();*/
+           
         }
 
         // POST: Fichemetier/Edit/5
@@ -84,10 +90,10 @@ namespace MVCConsumeWebApiCompetence.Controllers
             fs.Commit();
 
 
-
             try
             {
                 // TODO: Add update logic here
+          //      p1 = fs.GetById(id);
 
                 return RedirectToAction("Index");
             }

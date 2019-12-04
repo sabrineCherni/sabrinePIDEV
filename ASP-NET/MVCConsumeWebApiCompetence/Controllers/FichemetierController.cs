@@ -80,15 +80,15 @@ namespace MVCConsumeWebApiCompetence.Controllers
         public ActionResult Edit(int id, Fichemetier p1)
         {
 
+
             fs.Update(p1);
             fs.Commit();
-
-
 
             try
             {
                 // TODO: Add update logic here
-
+                
+                
                 return RedirectToAction("Index");
             }
             catch

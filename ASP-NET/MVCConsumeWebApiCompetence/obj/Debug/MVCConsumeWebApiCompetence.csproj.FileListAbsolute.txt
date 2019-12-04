@@ -100,3 +100,7 @@ C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\obj\Debug\MVC
 C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\obj\Debug\MVCConsumeWebApiCompetence.csproj.CopyComplete
 C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\obj\Debug\MVCConsumeWebApiCompetence.dll
 C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\obj\Debug\MVCConsumeWebApiCompetence.pdb
+C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\bin\MailKit.dll
+C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\bin\MimeKit.dll
+C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\bin\MailKit.xml
+C:\Users\Fadi\source\repos\MyCompetence\MVCConsumeWebApiCompetence\bin\MimeKit.xml

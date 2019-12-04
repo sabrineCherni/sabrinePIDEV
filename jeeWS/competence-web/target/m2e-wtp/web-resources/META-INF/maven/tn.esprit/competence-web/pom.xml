@@ -53,14 +53,25 @@
          <type>ejb</type>
          <scope>provided</scope>
       </dependency>
-
+      
+     
+		<dependency>     
+		 <groupId>io.jsonwebtoken</groupId>     
+		 <artifactId>jjwt</artifactId>     
+		 <version>0.6.0</version>        
+		 </dependency>
       <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>org.jboss.resteasy</groupId>
          <artifactId>jaxrs-api</artifactId>
          <scope>provided</scope>
       </dependency>
-
+		
+		 <dependency>     
+		 <groupId>javax.transaction</groupId>     
+		 <artifactId>javax.transaction-api</artifactId>     
+		 <version>1.2</version>        
+		 </dependency>   
       <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
          <groupId>javax.enterprise</groupId>
@@ -102,6 +113,7 @@
 <version>7.0</version> 
 
 </dependency> 
+
 
    </dependencies>
 

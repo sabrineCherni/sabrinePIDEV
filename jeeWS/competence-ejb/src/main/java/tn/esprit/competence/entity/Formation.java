@@ -1,6 +1,6 @@
 package tn.esprit.competence.entity;
 
-import java.io.Serializable; 
+import java.io.Serializable;  
 import java.util.Set;
 
 import javax.persistence.CascadeType;
