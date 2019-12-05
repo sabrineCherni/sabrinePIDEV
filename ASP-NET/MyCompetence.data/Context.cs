@@ -132,6 +132,6 @@ namespace MyCompetence.data
                 .IsUnicode(false);
         }
 
-        
+    //    public System.Data.Entity.DbSet<MVCConsumeWebApiCompetence.Models.Formation> Formations { get; set; }
     }
 }

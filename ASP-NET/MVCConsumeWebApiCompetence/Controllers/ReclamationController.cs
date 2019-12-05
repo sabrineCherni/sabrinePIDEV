@@ -1,4 +1,6 @@
-﻿using MyCompetence.domain.Entities;
+﻿using MailKit.Net.Smtp;
+using MimeKit;
+using MyCompetence.domain.Entities;
 using MyCompetence.service;
 using System;
 using System.Collections.Generic;
@@ -47,6 +49,30 @@ namespace MVCConsumeWebApiCompetence.Controllers
             fs = new ReclamationService();
             var reclamations = fs.GetMany();
             ViewBag.ReclamationId = new SelectList(reclamations, "ReclamationId", "Titre","Description");
+
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Test Project", "fadi.kraiem@esprit.tn"));
+            message.To.Add(new MailboxAddress("naren", "sagihi6571@imailt.com"));
+            message.Subject = "Test";
+            message.Body = new TextPart("plain")
+            {
+                Text = "hello world mail"
+            };
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("fadi.kraiem@esprit.tn", "12387654");
+
+
+                client.Send(message);
+
+                client.Disconnect(true);
+            }
+
+
+
+
             return View();
         }
 

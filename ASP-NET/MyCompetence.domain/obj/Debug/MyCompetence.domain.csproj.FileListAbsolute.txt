@@ -22,3 +22,4 @@ C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompeten
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.csproj.CopyComplete
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.dll
 C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.pdb
+C:\Users\Fadi\source\repos\MyCompetence\MyCompetence.Domain\obj\Debug\MyCompetence.domain.csprojAssemblyReference.cache

@@ -1959,7 +1959,6 @@
     <Content Include="Views\Fichemetier\Index.cshtml" />
     <Content Include="Views\Fichemetier\Create.cshtml" />
     <Content Include="Views\Fichemetier\Delete.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Reclamation\Delete.cshtml" />
     <Content Include="Views\Skill\Index.cshtml" />
     <Content Include="Views\Skill\Create.cshtml" />
@@ -1973,6 +1972,8 @@
     <Content Include="Views\Reclamation\Edit.cshtml" />
     <Content Include="Views\Fichemetier\Edit.cshtml" />
     <Content Include="Views\Formation\Index.cshtml" />
+    <Content Include="Views\Skill\GoogleMaps.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
