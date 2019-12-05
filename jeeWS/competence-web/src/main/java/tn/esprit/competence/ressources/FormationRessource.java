@@ -18,12 +18,12 @@ import javax.ws.rs.core.Response.Status;
 import tn.esprit.competence.entity.Formation;
 import tn.esprit.competence.services.impl.FormationService;
 @Path("formations")
-@RequestScoped
+ // @RequestScoped
 public class FormationRessource {
 	@EJB 
 	FormationService formationService; 
 	
-	@Secured 
+	//@Secured 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
  	public Response getAllUser ()
